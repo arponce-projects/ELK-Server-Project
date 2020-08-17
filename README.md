@@ -37,7 +37,8 @@ The machines on the internal network are not exposed to the public Internet.
 
 Only the JumpBox Provisioner machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
 -73.115.119.12
- It is important to note that this IP address can only be changed through Microsoft Azure's NSG rules. 
+ It is important to note that this IP address can only be changed through Microsoft Azure's NSG rules, as seen below:
+ ![image (2)](https://user-images.githubusercontent.com/69772277/90352043-bab46980-e007-11ea-87cc-40e361f33e93.png)
 
 Machines within the network can only be accessed by the Jumpbox provisioner, which has a public dynamic IP address but a singular private IP address.
 -10.0.0.4. 
@@ -89,7 +90,16 @@ SSH into the control node and follow the steps below:
 - Copy the install-elk.yml file to your control node.
 - Update the hosts file to include the private IP addresses of the VM you want to deploy the ELK. The HOSTS files will have groups that one can add new machines under, such as webservers or elk.
 - Run the playbook, and access the Kibana Server through the machine's public IP address. The format would be "http://[your.VM.IP]:5601/app/kibana".
+You should see an output similar to the one shown below:
+![image (1)](https://user-images.githubusercontent.com/69772277/90352008-99ec1400-e007-11ea-9902-6cc4f9735a35.png)
+
 To run the playbooks, utilize the command "ansible-playbook path/install-elk.yml".
 
 ### "X"beats Playbooks
-The Scripts/file_and_metric_beat_installation.yml file contains the installation measures required for the kibana server to pick up filebeats and metricbeats. As stated previously, this file can be edited so that the Kibana server receives other types of files, in which installation rules can be found within the Kibana repository. 
+The Scripts/file_and_metric_beat_installation.yml file contains the installation measures required for the Kibana server to pick up filebeats and metricbeats. As stated previously, this file can be edited so that the Kibana server receives other types of files, in which installation rules can be found within the Kibana repository. 
+When ran, the server will show whether or not the files were sent, as seen in the screenshot below:
+![image (3)](https://user-images.githubusercontent.com/69772277/90352064-cc960c80-e007-11ea-86d6-4b5c0e1fbf4e.png)
+Afterwards, we should be able to see all the information sent through the Kibana GUI, as seen below:
+![image (4)](https://user-images.githubusercontent.com/69772277/90352100-eafc0800-e007-11ea-8201-3638e69ac513.png)
+
+
