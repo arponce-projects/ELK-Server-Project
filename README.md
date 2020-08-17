@@ -2,7 +2,7 @@
 
 The files in this repository were used to configure the network depicted in the following path:
 
-https://github.com/arponce-projects/ELK-Server-Project/Images/Diagram_ELK_Project.PNG
+/Images/Diagram_ELK_Project.PNG
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the Kibana YAML playbook files file may be used to install only certain pieces of it, such as Filebeat or Metricbeat. The full file can be found at Scripts/install-elk.yml
 
