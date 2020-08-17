@@ -21,7 +21,7 @@
        - name: Stopping Filebeat Service from previous sessions if its already running.
          command: sudo systemctl stop filebeat
 
-       - name: Start Firebeat service
+       - name: Start Filebeat service
          command: sudo systemctl start filebeat
 
        - name: Install Metricbeat .deb file
