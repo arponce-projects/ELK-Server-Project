@@ -1,0 +1,41 @@
+---
+  - hosts: elk,webservers
+    become: True
+    tasks:
+
+       - name: Install Filebeats.deb package 7.4.0
+         apt:
+           deb: https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.4.0-amd64.deb
+
+       - name: Copy Filebeats configuration file from Container to Remote Location.
+         copy:
+           src: /etc/ansible/files/filebeat-configuration.yml
+           dest: /etc/filebeat/filebeat.yml
+
+       - name: Enableing and Configuring the system Module
+         command: sudo filebeat modules enable system
+
+       - name: Endpoint Setup
+         command: sudo filebeat setup
+
+       - name: Stopping Filebeat Service from previous sessions if its already running.
+         command: sudo systemctl stop filebeat
+
+       - name: Start Firebeat service
+         command: sudo systemctl start filebeat
+
+       - name: Install Metricbeat .deb file
+         apt:
+           deb: https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-7.4.0-amd64.deb
+
+       - name: Enable and configure the docker module
+         command: sudo metricbeat modules enable docker
+
+       - name: Endpoint Setup
+         command: sudo metricbeat setup
+
+       - name: Stopping Metricbeat service from previous sessions if its already running.
+         command: sudo systemctl stop metricbeat
+
+       - name: Start Metricbeat service
+         command: sudo systemctl start metricbeat
