@@ -4,9 +4,7 @@ The files in this repository were used to configure the network depicted in the 
 
 Images/ELK_Project.drawio
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the Kibana YAML playbook files file may be used to install only certain pieces of it, such as Filebeat or Metricbeat.
-
-intstall-elk-yaml-file.rtf
+These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the Kibana YAML playbook files file may be used to install only certain pieces of it, such as Filebeat or Metricbeat. The full file can be found at Scripts/install-elk.yml
 
 This document contains the following details:
 - Description of the Topology
@@ -70,28 +68,28 @@ The following screenshot displays the result of running `docker ps` after succes
 
 (Images/docker_ps_output.png)
 
-
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- _TODO: List the IP addresses of the machines you are monitoring_
+- Web 1 Machine, with an IP address of 10.0.0.5
+- Web 2 Machine, with an IP address of 10.0.0.6
+- ELK Machine, with an IP address of 10.1.0.4
 
 We have installed the following Beats on these machines:
-- _TODO: Specify which Beats you successfully installed_
+- Filebeats
+- Metricbeats
 
-These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+As stated previously, these Beats allow us to collect the following information from each machine:
+Filebeats: Monitors the log files or locations that you specify, collects log events, and forwards them either to Elasticsearch.
+Metricbeat: Monitors the metrics and statistics that it collects and ships them to the output that you specify, such as Elasticsearch. 
 
-### Using the Playbook
+
+### Using the Playbooks
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
-
 SSH into the control node and follow the steps below:
-- Copy the _____ file to _____.
-- Update the _____ file to include...
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
+- Copy the install-elk.yml file to your control node.
+- Update the hosts file to include the private IP addresses of the VM you want to deploy the ELK. The HOSTS files will have groups that one can add new machines under, such as 
+- Run the playbook, and access the Kibana Server through the machine's public IP address. The format would be "http://[your.VM.IP]:5601/app/kibana"
+To run the playbooks, utilize the command "ansible-playbook path/install-elk.yml" to intall the ELK server.
 
-_TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _Which URL do you navigate to in order to check that the ELK server is running?
-
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+### "X"beats Playbooks
+The Scripts/file_and_metric_beat_installation.yml file contains the installation measures required for the kibana server to pick up filebeats and metricbeats. As stated previously, this file can be edited to include other files, in which installation rules can be found within the Kibana repository. 
