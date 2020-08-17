@@ -95,9 +95,9 @@ You should see an output similar to the one shown below:
 
 To run the playbooks, utilize the command "ansible-playbook path/install-elk.yml".
 
-### "X"beats Playbooks
+### "X" beats Playbooks
 The Scripts/file_and_metric_beat_installation.yml file contains the installation measures required for the Kibana server to pick up filebeats and metricbeats. As stated previously, this file can be edited so that the Kibana server receives other types of files, in which installation rules can be found within the Kibana repository. 
-When ran, the server will show whether or not the files were sent, as seen in the screenshot below:
+After the script has been executed, the server will show whether or not the files were sent, as seen in the screenshot below:
 ![image (3)](https://user-images.githubusercontent.com/69772277/90352064-cc960c80-e007-11ea-86d6-4b5c0e1fbf4e.png)
 Afterwards, we should be able to see all the information sent through the Kibana GUI, as seen below:
 ![image (4)](https://user-images.githubusercontent.com/69772277/90352100-eafc0800-e007-11ea-8201-3638e69ac513.png)
