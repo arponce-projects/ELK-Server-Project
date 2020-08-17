@@ -61,7 +61,7 @@ The playbook implements the following tasks:
 - Utilizes the apt service to install docker.io assets.
 - Utilizes the apt service to install python's pip3, as well as the python docker module.
 - Downloads the elk docker container from the web image.
-**Note: It is important to note the published ports for the container download, since it will      allow the kibana server to get their respective information through these ports.**
+**Note: It is important to note the published ports for the container download, since it will allow the kibana server to get their respective information through these ports.**
 - Enables the docker service.
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
@@ -87,8 +87,8 @@ Metricbeat: Monitors the metrics and statistics that it collects and ships them 
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 SSH into the control node and follow the steps below:
 - Copy the install-elk.yml file to your control node.
-- Update the hosts file to include the private IP addresses of the VM you want to deploy the ELK. The HOSTS files will have groups that one can add new machines under, such as 
-- Run the playbook, and access the Kibana Server through the machine's public IP address. The format would be "http://[your.VM.IP]:5601/app/kibana"
+- Update the hosts file to include the private IP addresses of the VM you want to deploy the ELK. The HOSTS files will have groups that one can add new machines under, such as webservers or elk.
+- Run the playbook, and access the Kibana Server through the machine's public IP address. The format would be "http://[your.VM.IP]:5601/app/kibana".
 To run the playbooks, utilize the command "ansible-playbook path/install-elk.yml" to intall the ELK server.
 
 ### "X"beats Playbooks
