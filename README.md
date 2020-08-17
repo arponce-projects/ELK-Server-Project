@@ -89,7 +89,7 @@ SSH into the control node and follow the steps below:
 - Copy the install-elk.yml file to your control node.
 - Update the hosts file to include the private IP addresses of the VM you want to deploy the ELK. The HOSTS files will have groups that one can add new machines under, such as webservers or elk.
 - Run the playbook, and access the Kibana Server through the machine's public IP address. The format would be "http://[your.VM.IP]:5601/app/kibana".
-To run the playbooks, utilize the command "ansible-playbook path/install-elk.yml" to intall the ELK server.
+To run the playbooks, utilize the command "ansible-playbook path/install-elk.yml".
 
 ### "X"beats Playbooks
-The Scripts/file_and_metric_beat_installation.yml file contains the installation measures required for the kibana server to pick up filebeats and metricbeats. As stated previously, this file can be edited to include other files, in which installation rules can be found within the Kibana repository. 
+The Scripts/file_and_metric_beat_installation.yml file contains the installation measures required for the kibana server to pick up filebeats and metricbeats. As stated previously, this file can be edited so that the Kibana server receives other types of files, in which installation rules can be found within the Kibana repository. 
