@@ -2,7 +2,7 @@
 
 The files in this repository were used to configure the network depicted in the following path:
 
-/Images/Diagram_ELK_Project.PNG
+https://user-images.githubusercontent.com/69772277/90350576-36f87e00-e003-11ea-876f-ac46ee48ce3c.PNG
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the Kibana YAML playbook files file may be used to install only certain pieces of it, such as Filebeat or Metricbeat. The full file can be found at Scripts/install-elk.yml
 
